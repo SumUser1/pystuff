@@ -1,0 +1,42 @@
+def encrypt(e):
+    try:
+        s = int(input("Shift: "))%26
+        c = ""
+        for i in e:
+            if i.isalpha():
+                l = chr(ord(i)+s)
+                if (not l.isalpha()) or i.isupper() != l.isupper():
+                    c += chr(ord(i)+s-26)
+                else:
+                    c += l
+            else:
+                c += i
+        print(c)
+    except:
+        print("ERROR DETECTED!\nCheck your inputs and try again.")
+def decrypt(c):
+    try:
+        s = int(input("Shift: "))%26
+        e = ""
+        for i in c:
+            if i.isalpha():
+                l = chr(ord(i)-s)
+                if (not l.isalpha()) or i.isupper() != l.isupper():
+                    e += chr(ord(i)-s+26)
+                else:
+                    e += l
+            else:
+                e += i
+        print(e)
+    except:
+        print("ERROR DETECTED!\nCheck your inputs and try again.")
+while True:
+    ed = input("[E]/D/EXIT: ")
+    if ed.lower() == "e" or ed.lower == "encrypt":
+        encrypt(input("Plaintext: "))
+    elif ed.lower() == "d" or ed.lower == "decrypt":
+        decrypt(input("Ciphertext: "))
+    elif ed.lower() == "exit":
+        break
+    else:
+        encrypt(ed)

@@ -1,0 +1,14 @@
+while True:
+    a = input("Counting text:\n").split()
+    b = {}
+    c = {}
+    print()
+    for i in a:
+        b[i] = a.count(i)
+    for i in sorted(b):
+        c[i] = b[i]
+    while len(c) != 0:
+        print("{}: {}".format(list(c.keys())[list(c.values()).index(max(c.values()))],max(c.values())))
+        del c[list(c.keys())[list(c.values()).index(max(c.values()))]]
+    if input("\nType EXIT to exit WordCount.\n").lower() == "exit":
+        break

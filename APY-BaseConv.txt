@@ -1,0 +1,18 @@
+while True:
+    try:
+        n = input("[D]/E/EXIT: ")
+        if n.lower() == "exit":
+            break
+        elif n.lower() == "e" or n.lower() == "encrypt":
+            a = input("Base 10 integer: ")
+            b = input("Convert to base [16]/8/2: ")
+            if b == "2":
+                print(bin(int(a))[2::])
+            elif b == "8":
+                print(oct(int(a))[2::])
+            else:
+                print(hex(int(a))[2::])
+        else:
+            print(int(input("String: "),int(input("Base: "))))
+    except:
+        print("ERROR DETECTED!\nCheck your input and try again.")
